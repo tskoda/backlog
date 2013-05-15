@@ -1,0 +1,52 @@
+<div>
+    <h2>
+      <ul class="breadcrumb">
+        <li class="active">Projects</li>
+      </ul>
+    </h2>
+
+	<form class="form-inline">
+		<button class="btn btn-success" ng-click="newProject()">New Project</button>
+		<input type="text" autofocus placeholder="type to search..." class="pull-right input-medium search-query" ng-model="query">		
+	</form>
+
+	<table class="table table-hover table-condensed">
+		<thead>
+			<tr>
+				<th style="width:5%;text-align:center">#</th>
+				<th style="width:5%;text-align:center">Status</th>
+				<th>Project</th>
+				<th style="width:18%;text-align:center"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="project in projects | filter:query | orderBy:'_id'">
+				<td style="text-align:center">
+					<span class="badge badge-inverse center">{{project._id}}</span>
+				</td>
+				<td style="text-align:center">
+					<span class="badge center">{{project.status}}</span>
+				</td>
+				<td>
+					<strong>{{project.name}}</strong> project for <strong>{{project.customer.name}}</strong>.
+					<p class="muted" ng-bind-html-unsafe="project.description"></p>
+				</td>
+				<td style="text-align:right">
+					<button class="btn btn-small" ng-click="showProjectFeatures(project._id)"><i class="icon-tasks"></i> Features</button>
+					<div class="btn-group">
+						<button class="btn btn-small" ng-click="showProject(project._id)"><i class="icon-edit"></i></button>
+						<button class="btn btn-small dropdown-toggle" data-toggle="dropdown"> 
+							<span class="caret"></span>
+						</button>
+  						<ul class="dropdown-menu" style="text-align:left">
+    						<li><a ng-click="showProject(project._id)">Edit</a></li>
+    						<!-- <li><a ng-click="copyProject(project)">Create a copy</a></li> -->
+    						<li class="divider"></li>
+    						<li><a ng-click="removeProject(project)">Remove</a></li>
+  						</ul>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

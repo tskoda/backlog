@@ -1,0 +1,115 @@
+<div>
+
+  <h2>
+    <ul class="breadcrumb">
+      <li><a href="#/projects">Projects</a><span class="divider">/</span></li>
+      <li class="active">{{project.name}}</li>
+    </ul>
+  </h2>
+
+    <form class="form-horizontal">
+      <div class="row">
+        <div class="span11">
+          <legend>Project</legend>
+          <div class="control-group">
+            <label class="control-label" for="inputProjectName">Name</label>
+            <div class="controls">
+              <input id="inputProjectName" type="text" class="input-block-level" required ng-model="project.name" ng-change="onChange()" autofocus></input>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputProjectDescription">Description</label>
+            <div class="controls">
+              <textarea id="inputProjectDescription" rows="5" class="input-block-level" ng-model="project.description" ng-change="onChange()"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputFeatureName">Status</label>
+            <div class="controls">
+              <select id="inputFeatureName" type="text" class="span2" required ng-model="project.status" ng-change="onChange()">
+                <option>Active</option>
+                <option>Planned</option>
+                <option>Canceled</option>
+              </select>
+            </div>
+        </div>
+        </div>
+      </div>
+    </form>
+
+    <form class="form-horizontal">
+      <div class="row">
+        <div class="span11">
+          <legend>Customer</legend>
+          <div class="control-group">
+            <label class="control-label" for="inputCustomerName">Name</label>
+            <div class="controls">
+              <input id="inputCustomerName" type="text" class="input-block-level" ng-model="project.customer.name" ng-change="onChange()" required></input>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputCustomerContactName">Stakeholders</label>
+
+            <div ng-repeat="stakeholder in project.customer.stakeholders">
+              <div class="controls controls-rows"> 
+                <input id="inputCustomerContactName" type="text" class="span4" ng-model="stakeholder.name" ng-change="onChange()"></input>
+                <div class="input-prepend">
+                  <span class="add-on">@</span>
+                  <input id="inputCustomerContactEmail" type="email" class="span3 " ng-model="stakeholder.email" ng-change="onChange()"></input>           
+                </div>
+                <div class="btn-group">
+                  <a ng-href="mailto:{{stakeholder.email}}" class="btn"><i class="icon-envelope"></i></a>
+                  <button class="btn" ng-click="addStakeholder()"><i class="icon-plus"></i></button>
+                  <button class="btn" ng-click="removeStakeholder(stakeholder)"><i class="icon-trash"></i></button>  
+                </div> 
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+
+    <form class="form-horizontal">
+      <div class="row">
+        <div class="span11">
+          <legend>Team</legend>
+          <div class="control-group">
+            <label class="control-label" for="inputProjectName">Scrum master</label>
+            <div class="controls">
+              <input id="inputProjectName" type="text" class="span4" ng-model="project.team.scrumMaster.name" ng-change="onChange()"></input>
+              <div class="input-prepend">
+                  <span class="add-on">@</span>
+                  <input id="inputCustomerContactEmail" type="email" class="span3 " ng-model="project.team.scrumMaster.email" ng-change="onChange()"></input>
+              </div>
+              <div class="btn-group">
+                  <a ng-href="mailto:{{project.team.scrumMaster.email}}" class="btn"><i class="icon-envelope"></i></a>
+              </div>            
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputCustomerContactName">Members</label>
+
+            <div ng-repeat="member in project.team.members">
+              <div class="controls controls-rows"> 
+                <input id="inputCustomerContactName" type="text" class="span4" ng-model="member.name" ng-change="onChange()"></input>
+                <div class="input-prepend">
+                  <span class="add-on">@</span>
+                  <input id="inputCustomerContactEmail" type="email" class="span3 " ng-model="member.email" ng-change="onChange()"></input>           
+                </div>
+                <div class="btn-group">
+                  <a ng-href="mailto:{{member.email}}" class="btn"><i class="icon-envelope"></i></a>
+                  <button class="btn" ng-click="addTeamMember()"><i class="icon-plus"></i></button>
+                  <button class="btn" ng-click="removeTeamMember(member)"><i class="icon-trash"></i></button>  
+                </div> 
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+
+  </div>

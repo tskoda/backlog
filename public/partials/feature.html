@@ -1,0 +1,61 @@
+<div>
+  <h2>
+    <ul class="breadcrumb">
+      <li><a href="#/projects">Projects</a><span class="divider">/</span></li>
+      <li><a href="#/projects/{{project._id}}">{{project.name}}</a><span class="divider">/</span></li>
+      <li><a href="#/projects/{{project._id}}/features">Features</a><span class="divider">/</span></li>
+      <li class="active">{{feature.name}}</li>
+    </ul>
+  </h2>
+
+  <form class="form-horizontal">
+    <div class="row">
+      <div class="span11">
+        <legend>Feature</legend>
+        <div class="control-group">
+          <label class="control-label" for="inputFeatureName">Name</label>
+          <div class="controls">
+            <input id="inputFeatureName" type="text" class="input-block-level" required ng-model="feature.name" ng-change="onChange()" autofocus></input>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputFeatureStory">User story</label>
+          <div class="controls">
+            <textarea id="inputFeatureStory" rows="8" class="input-block-level" ng-model="feature.story" ng-change="onChange()"></textarea>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputFeatureName">Status</label>
+          <div class="controls">
+            <select id="inputFeatureName" type="text" class="span2" required ng-model="feature.status" ng-change="onChange()">
+              <option>Active</option>
+              <option>Planned</option>
+              <option>Done</option>
+              <option>Canceled</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <form class="form-horizontal">
+    <div class="row">
+      <div class="span11">
+        <legend>Estimations</legend>
+        <div class="control-group">
+          <label class="control-label" for="inputFeatureValue">Business Value</label>
+          <div class="controls">
+            <input id="inputFeatureValue" type="text" class="span2" ng-model="feature.value" ng-change="onChange()"></input>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputFeatureSize">Feature Size</label>
+          <div class="controls">
+            <input id="inputFeatureSize" type="text" class="span2" ng-model="feature.size" ng-change="onChange()"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

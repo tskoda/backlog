@@ -1,0 +1,16 @@
+/* application css stylesheet */
+.hero-unit h1 {
+	line-height: 40px;
+}
+
+.breadcrumb {
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	background-color: white;
+}
+
+form {
+	margin-bottom: 5px;
+}
